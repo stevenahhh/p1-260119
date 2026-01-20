@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2차 발표: AI와 함께하는 데이터 시각화</title>
+  <title>2차 발표: 태양광 데이터 대시보드 구축</title>
   <base target="_blank">
 
   <!-- Pretendard Font -->
@@ -28,7 +28,8 @@
 
       <!-- Title Slide -->
       <section class="center">
-        <h1>데이터 시각화</h1>
+        <h1>태양광 데이터 시각화</h1>
+        <h2>AI와 함께하는 실전 분석</h2>
       </section>
 
       <!-- Slide 2: Why Data Viz? -->
@@ -88,26 +89,45 @@
           <p style="margin: 0;"><strong>데이터 파일:</strong> <code>F71-72-74-76-78-27-resampled-30m - 복사본.csv</code></p>
           <p style="margin: 10px 0 0 0;">(G열의 <strong>'발전량'</strong> 데이터를 시각화의 핵심 지표로 사용합니다.)</p>
         </div>
+        <p
+          style="color: #c53030; font-weight: 700; background: #fff5f5; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+          ⚠️ 주의: 다운로드한 데이터 파일은 반드시 작성할 파이썬 스크립트(.py)와 <u>같은 폴더</u>에 있어야 합니다.
+        </p>
+        <div class="image-container">
+          <!-- 사용자 이미지 삽입 공간 -->
+          <img src="data.png" alt="VS Code Run Button" class="guide-image">
+        </div>
+
         <a href="F71-72-74-76-78-27-resampled-30m - 복사본.csv" download
           style="display: inline-block; background: #e67e22; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold;">
           📥 실습 데이터 다운로드
         </a>
       </section>
 
-      <!-- Slide 6: Step 3 Basic Analysis -->
+      <!-- Slide 6: Step 3 Master AI Prompt -->
       <section>
-        <h1>Step 3: 데이터 로드 및 확인</h1>
-        <pre><code class="language-python">import pandas as pd
-
-# CSV 파일 로드 (한글 깨짐 방지를 위해 cp949 인코딩 사용)
-file_path = 'F71-72-74-76-78-27-resampled-30m - 복사본.csv'
-df = pd.read_csv(file_path, encoding='cp949')
-
-# 데이터 구조 확인 (G열 '발전량' 확인)
-print(df.head())
-print(df.info())</code></pre>
+        <h1>Step 3: 초정밀 AI 프롬프트 실습</h1>
+        <p>현업 수준의 실전 분석을 위해 Copilot에게 다음과 같이 <strong>명확하고 상세하게</strong> 요청하십시오.</p>
+        <blockquote style="font-size: 0.75em; line-height: 1.4;">
+          나는 지금 <strong>Windows 환경</strong>에서 <code>F71-72-74-76-78-27-resampled-30m - 복사본.csv</code> 파일을 분석하려고 해. 다음
+          단계를 수행하는 완벽한 파이썬 코드를 작성해줘:<br><br>
+          1. <strong>환경 구축</strong>: 'analy-env'라는 가상환경을 만들고 활성화한 뒤, pandas, matplotlib, seaborn을 설치하는 터미널 명령어를 먼저
+          알려줘.<br>
+          2. <strong>데이터 로드</strong>: 위 CSV 파일을 pandas로 읽어와. 한글 인코딩(cp949)을 고려해서 불러오고, 데이터 구조를 확인해줘.<br>
+          3. <strong>데이터 전처리</strong>: 첫 번째 컬럼인 'REG_DATE'를 시계열(datetime) 형식으로 변환해줘.<br>
+          4. <strong>시각화</strong>: <strong>G열에 있는 '발전량' 데이터</strong>를 타겟으로 해서, 시간에 따른 발전량 변화를 선 그래프(lineplot)로 그려줘. <br>
+          - 폰트는 'Malgun Gothic'으로 설정해서 한글이 안 깨지게 해줘.<br>
+          - 그래프 제목은 '시간별 태양광 발전량 변화 추이'로 하고, x축 레이블이 겹치지 않게 회전시켜줘.<br>
+          - 결과 그래프를 'solar_output_chart.png'로 저장하는 코드도 포함해줘.
+        </blockquote>
       </section>
-
+      <section>
+        <h1>가상환경 설정</h1>
+        <p>Copilot이 가상환경을 만들었다면 아래처럼 VS Code에서 알림이 올 수 있습니다</p>
+        <div class="image-container">
+          <!-- 사용자 이미지 삽입 공간 -->
+          <img src="notice.png" alt="VS Code Run Button" class="guide-image">
+      </section>
       <!-- Slide 7: Python Execution Guide -->
       <section>
         <h1>Python 스크립트 실행 방법</h1>
@@ -122,9 +142,23 @@ print(df.info())</code></pre>
         </ul>
       </section>
 
-      <!-- Slide 7: Step 4 Plotting -->
+      <!-- Slide 8: Step 4 Basic Analysis -->
       <section>
-        <h1>Step 4: 발전량 시변화 시각화</h1>
+        <h1>Step 4: 데이터 로드 및 확인 (코드 분석)</h1>
+        <pre><code class="language-python">import pandas as pd
+
+# CSV 파일 로드 (한글 깨짐 방지를 위해 cp949 인코딩 사용)
+file_path = 'F71-72-74-76-78-27-resampled-30m - 복사본.csv'
+df = pd.read_csv(file_path, encoding='cp949')
+
+# 데이터 구조 확인 (G열 '발전량' 확인)
+print(df.head())
+print(df.info())</code></pre>
+      </section>
+
+      <!-- Slide 9: Step 5 Plotting -->
+      <section>
+        <h1>Step 5: 발전량 시변화 시각화 (코드 분석)</h1>
         <pre><code class="language-python">import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -138,24 +172,6 @@ sns.lineplot(x='REG_DATE', y=df.columns[6], data=df.head(100))
 plt.title('시간대별 발전량 추이 (상위 100건)')
 plt.xticks(rotation=45)
 plt.show()</code></pre>
-      </section>
-
-      <!-- Slide 8: Step 5 Interactive -->
-      <section>
-        <h1>Step 5: 초정밀 AI 프롬프트 실습</h1>
-        <p>현업 수준의 실전 분석을 위해 Copilot에게 다음과 같이 <strong>명확하고 상세하게</strong> 요청하십시오.</p>
-        <blockquote style="font-size: 0.75em; line-height: 1.4;">
-          "나는 지금 <strong>Windows 환경</strong>에서 <code>F71-72-74-76-78-27-resampled-30m - 복사본.csv</code> 파일을 분석하려고 해. 다음
-          단계를 수행하는 완벽한 파이썬 코드를 작성해줘:<br><br>
-          1. <strong>환경 구축</strong>: 'analy-env'라는 가상환경을 만들고 활성화한 뒤, pandas, matplotlib, seaborn을 설치하는 터미널 명령어를 먼저
-          알려줘.<br>
-          2. <strong>데이터 로드</strong>: 위 CSV 파일을 pandas로 읽어와. 한글 인코딩(cp949)을 고려해서 불러오고, 데이터 구조를 확인해줘.<br>
-          3. <strong>데이터 전처리</strong>: 첫 번째 컬럼인 'REG_DATE'를 시계열(datetime) 형식으로 변환해줘.<br>
-          4. <strong>시각화</strong>: <strong>G열에 있는 '발전량' 데이터</strong>를 타겟으로 해서, 시간에 따른 발전량 변화를 선 그래프(lineplot)로 그려줘. <br>
-          - 폰트는 'Malgun Gothic'으로 설정해서 한글이 안 깨지게 해줘.<br>
-          - 그래프 제목은 '시간별 태양광 발전량 변화 추이'로 하고, x축 레이블이 겹치지 않게 회전시켜줘.<br>
-          - 결과 그래프를 'solar_output_chart.png'로 저장하는 코드도 포함해줘."
-        </blockquote>
       </section>
 
       <!-- Slide 9: Troubleshooting -->
@@ -204,6 +220,34 @@ plt.show()</code></pre>
       plugins: [RevealHighlight],
       transition: 'slide',
       center: true
+    });
+
+    // Copy Button Script
+    document.querySelectorAll('pre, blockquote').forEach(el => {
+      if (el.closest('.slides')) { // Only for slides
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.innerText = '복사';
+        button.addEventListener('click', () => {
+          let text = "";
+          if (el.tagName === 'PRE') {
+            text = el.querySelector('code').innerText;
+          } else {
+            text = el.innerText.replace('복사', '').trim();
+          }
+
+          navigator.clipboard.writeText(text).then(() => {
+            button.innerText = '완료!';
+            button.classList.add('copied');
+            setTimeout(() => {
+              button.innerText = '복사';
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+        el.style.position = 'relative';
+        el.appendChild(button);
+      }
     });
   </script>
 </body>

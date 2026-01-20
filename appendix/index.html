@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="../style.css">
   <style>
-    
+
   </style>
 </head>
 
@@ -68,12 +68,6 @@
           <li><b>'Korean Language Pack'</b> 항목의 [Install] 버튼을 클릭합니다.</li>
           <li>우측 하단 알림창에서 [Change Language and Restart]를 선택하여 재시작합니다.</li>
         </ol>
-
-        <div class="step-title">과정 04. 작업 효율을 높이는 기본 옵션</div>
-        <ul>
-          <li><b>자동 저장:</b> <code>파일 > 자동 저장</code> 메뉴를 체크하십시오. 코드를 작성할 때마다 별도로 저장할 필요가 없어 효율적입니다.</li>
-          <li><b>설정 열기:</b> <code>Ctrl + ,</code>를 눌러 필요한 글꼴 크기나 테마를 자유롭게 조정할 수 있습니다.</li>
-        </ul>
       </section>
 
       <!-- 4. 확장 프로그램 -->
@@ -89,6 +83,10 @@
         </ul>
         <p style="margin-top: 10px; font-size: 0.9em; color: #718096;">※ 설치 방법: 사이드바의 Extensions 메뉴에서 이름을 검색한 뒤 [설치]를
           클릭하십시오.</p>
+          <div class="image-container">
+          <!-- 사용자 이미지 삽입 공간 -->
+          <img src="extension2.png" alt="VS Code Run Button" class="guide-image">
+        </div>
       </section>
 
       <!-- 5-1. Miniconda 설치 (Windows) -->
@@ -212,6 +210,34 @@ conda env list</code></pre>
       margin: 0.04,
       minScale: 0.2,
       maxScale: 2.0
+    });
+
+    // Copy Button Script
+    document.querySelectorAll('pre, blockquote').forEach(el => {
+      if (el.closest('.slides')) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.innerText = '복사';
+        button.addEventListener('click', () => {
+          let text = "";
+          if (el.tagName === 'PRE') {
+            text = el.querySelector('code').innerText;
+          } else {
+            text = el.innerText.replace('복사', '').trim();
+          }
+
+          navigator.clipboard.writeText(text).then(() => {
+            button.innerText = '완료!';
+            button.classList.add('copied');
+            setTimeout(() => {
+              button.innerText = '복사';
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+        el.style.position = 'relative';
+        el.appendChild(button);
+      }
     });
   </script>
 </body>

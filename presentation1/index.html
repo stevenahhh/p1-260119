@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VSCode + Miniconda + GitHub Copilot 실습</title>
+    <title>1차 발표: 파이썬 기초 및 AI 원샷 분석</title>
     <base target="_blank">
 
     <!-- Pretendard Font -->
@@ -30,8 +30,8 @@
 
             <!-- Slide 1: Title -->
             <section class="center">
-                <h1>실습</h1>
-                <p>stevenahhh.github.io/p1-260119</p>
+                <h1>파이썬 기초 및 AI 원샷 분석</h1>
+                <p>AI 개발 환경 구축과 데이터 분석의 시작</p>
             </section>
 
             <!-- Slide 2: Tools Overview -->
@@ -502,6 +502,34 @@ for i in range(1, 11):
             transition: 'slide',
             transitionSpeed: 'fast',
             center: true
+        });
+
+        // Copy Button Script
+        document.querySelectorAll('pre, blockquote').forEach(el => {
+            if (el.closest('.slides')) {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.innerText = '복사';
+                button.addEventListener('click', () => {
+                    let text = "";
+                    if (el.tagName === 'PRE') {
+                        text = el.querySelector('code').innerText;
+                    } else {
+                        text = el.innerText.replace('복사', '').trim();
+                    }
+
+                    navigator.clipboard.writeText(text).then(() => {
+                        button.innerText = '완료!';
+                        button.classList.add('copied');
+                        setTimeout(() => {
+                            button.innerText = '복사';
+                            button.classList.remove('copied');
+                        }, 2000);
+                    });
+                });
+                el.style.position = 'relative';
+                el.appendChild(button);
+            }
         });
     </script>
 </body>

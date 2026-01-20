@@ -3,13 +3,225 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>세 번째 발표 자료</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3차 발표: Flask를 활용한 실시간 웹 서비스</title>
+  <base target="_blank">
+
+  <!-- Pretendard Font -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+  <!-- reveal.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/white.css">
+
+  <!-- Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/monokai.css">
+
   <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-  <a href="../index.html" class="home-button">🏠 홈으로</a>
-  <h1>세 번째 발표 자료 - 준비 중입니다.</h1>
+  <a href="../index.html" class="home-button" target="_self">🏠 홈으로</a>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Title -->
+      <section class="center">
+        <h1>Flask를 활용한 실시간 웹 서비스</h1>
+        <h2>데이터 대시보드 배포하기</h2>
+      </section>
+
+      <!-- Slide 2: Why Web? -->
+      <section>
+        <h1>왜 웹 서비스인가?</h1>
+        <p>분석 코드를 직접 실행하지 못하는 사용자들에게 <strong>결과를 공유하는 가장 강력한 방법</strong>입니다.</p>
+        <ul>
+          <li><strong>접근성:</strong> 브라우저만 있으면 어디서든 데이터 확인</li>
+          <li><strong>상호작용:</strong> 클릭 한 번으로 기간별, 장치별 필터링</li>
+          <li><strong>자동화:</strong> 데이터가 업데이트되면 대시보드도 실시간 반영</li>
+        </ul>
+      </section>
+
+      <!-- Slide 3: Essential Tools -->
+      <section>
+        <h1>주요 기술 사양</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>도구</th>
+              <th>역할</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Flask</code></td>
+              <td>파이썬 기반의 가볍고 강력한 웹 프레임워크</td>
+            </tr>
+            <tr>
+              <td><code>Plotly</code></td>
+              <td>웹에서 움직이는 인터랙티브 그래프 생성</td>
+            </tr>
+            <tr>
+              <td><code>Pandas</code></td>
+              <td>데이터 로드 및 전처리를 위한 필수 라이브러리</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Slide 4: Step 1 Setup -->
+      <section>
+        <h1>Step 1: 웹 개발 환경 선언</h1>
+        <p>복잡한 가상환경과 라이브러리 설정을 AI에게 한 번에 맡깁니다.</p>
+        <ul>
+          <li><strong>전용 가상환경:</strong> <code>web-env</code> 생성</li>
+          <li><strong>필수 패키지:</strong> Flask, Plotly, Pandas 설치</li>
+          <li><strong>구조 설계:</strong> 웹 페이지(Template)와 로직(App) 분리</li>
+        </ul>
+      </section>
+
+      <!-- Slide 5: Step 2 Detailed Master Prompt -->
+      <section>
+        <h1>Step 2: 웹 서비스 통합 프롬프트</h1>
+        <p>아래 프롬프트를 복사하여 Copilot Chat에 입력하십시오.</p>
+        <blockquote style="font-size: 0.7em; line-height: 1.4;">
+          "나는 지금 Windows 환경이야. <code>F71-72-74-76-78-27-resampled-30m - 복사본.csv</code> 데이터를 시각화해서 보여주는 <strong>실시간 웹
+            대시보드</strong>를 만들고 싶어. 다음 지침을 따라줘:<br><br>
+          1. <strong>환경 설정</strong>: 'web-env' 가상환경을 만들고 활성화한 뒤, <code>flask, pandas, plotly</code>를
+          설치해줘.<br>
+          2. <strong>웹 서버 코드 (app.py)</strong>: <br>
+          - Flask 프레임워크를 사용해줘. <br>
+          - CSV 데이터를 읽고(cp949), 'REG_DATE'와 G열 '발전량'을 추출해.<br>
+          - <code>Plotly</code>를 사용하여 시간에 따른 발전량 변화 그래프를 JSON 데이터로 변환해서 웹으로 전달하는 <code>/chart-data</code> API를 만들어줘.<br>
+          3. <strong>화면 디자인 (index.html)</strong>: <br>
+          - <code>templates</code> 폴더 안에 생성해줘.<br>
+          - <strong>Tailwind CSS</strong>를 사용해서 모던하고 세련된 UI를 짜줘. (다크 모드 가미)<br>
+          - 상단에는 '태양광 발전 실시간 모니터링'이라는 제목을 넣고, 아래에 큰 그래프 영역을 만들어줘.<br>
+          4. <strong>실행</strong>: Flask 서버를 실행해줘."
+        </blockquote>
+      </section>
+
+      <!-- Slide 6: Step 3 Execution -->
+      <section>
+        <h1>Step 3: 서비스 가동 및 접속</h1>
+        <p>서버가 실행되면 다음 주소로 접속하여 대시보드를 확인합니다.</p>
+        <div
+          style="background: #edf2f7; padding: 20px; border-radius: 10px; border-left: 5px solid #2b6cb0; width: 100%;">
+          <p style="font-family: monospace; font-size: 1.5em; margin: 0; text-align: center;">http://127.0.0.1:5000</p>
+        </div>
+      </section>
+
+
+      <!-- Slide 7: Interactive Practice -->
+      <section>
+        <h1>심화 실습: 기능 추가하기</h1>
+        <p>Copilot에게 기존 코드를 개선하도록 요청해보세요.</p>
+        <blockquote>
+          "지금 만든 대시보드 상단에 <strong>'현재 발전량'</strong>을 큰 숫자로 보여주는 요약 카드를 추가해주고, 배경색을 좀 더 짙은 네이비 톤으로 바꿔줘."
+        </blockquote>
+      </section>
+
+      <!-- Slide 8: Troubleshooting -->
+      <section>
+        <h1>웹 환경 문제 해결</h1>
+        <div style="display: flex; gap: 20px; align-items: stretch;">
+          <!-- Manual Fix -->
+          <div
+            style="flex: 1; background: #fff5f5; padding: 15px; border-radius: 12px; border: 2px solid #feb2b2; text-align: left; box-sizing: border-box;">
+            <h2 style="color: #c53030; margin-top: 0; font-size: 0.9em;">🛠️ 수동 해결 (명령어)</h2>
+            <p style="font-size: 0.6em; margin: 5px 0;">가상환경을 활성화하고 직접 실행합니다.</p>
+            <pre style="font-size: 0.4em; margin: 10px 0;"><code># 가상환경 활성화
+.\web-env\Scripts\activate
+
+# 서버 실행
+python app.py</code></pre>
+          </div>
+          <!-- AI Fix -->
+          <div
+            style="flex: 1; background: #ebf8ff; padding: 15px; border-radius: 12px; border: 2px solid #90cdf4; text-align: left; box-sizing: border-box;">
+            <h2 style="color: #2b6cb0; margin-top: 0; font-size: 0.9em;">🤖 자동 해결 (AI 프롬프트)</h2>
+            <p style="font-size: 0.6em; margin: 5px 0;">Copilot에게 아래 내용을 입력하세요.</p>
+            <blockquote
+              style="font-size: 0.55em; margin: 10px 0; background: white; padding: 10px; border-radius: 5px;">
+              "패키지를 설치했는데도 <code>ModuleNotFoundError</code>가 발생해. 가상환경 활성화 명령어를 포함해서 서버를 다시 실행하는 전체 과정을 도와줘."
+            </blockquote>
+          </div>
+        </div>
+
+        <table style="font-size: 0.6em; margin-top: 20px;">
+          <thead>
+            <tr>
+              <th>문제 상황</th>
+              <th>해결법</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>주소 접속 불가</td>
+              <td>Flask 실행 후 표시되는 포트(5000 등)가 주소와 일치하는지 확인</td>
+            </tr>
+            <tr>
+              <td>그래프 미표시</td>
+              <td>Plotly CDN 라이브러리가 HTML의 &lt;head&gt;에 포함되었는지 확인</td>
+            </tr>
+            <tr>
+              <td>TemplateNotFound</td>
+              <td><code>templates</code> 폴더 내에 HTML 파일이 정확히 있는지 확인</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Slide 9: Conclusion -->
+      <section class="center">
+        <h1>모든 실습 종료</h1>
+        <p>이제 여러분은 <strong>데이터 수집, 분석, 시각화, 웹 배포</strong>까지<br>AI와 함께하는 풀스택 데이터 분석가입니다!</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [RevealHighlight],
+      transition: 'slide',
+      center: true
+    });
+
+    // Copy Button Script
+    document.querySelectorAll('pre, blockquote').forEach(el => {
+      if (el.closest('.slides')) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.innerText = '복사';
+        button.addEventListener('click', () => {
+          let text = "";
+          if (el.tagName === 'PRE') {
+            text = el.querySelector('code').innerText;
+          } else {
+            text = el.innerText.replace('복사', '').trim();
+          }
+
+          navigator.clipboard.writeText(text).then(() => {
+            button.innerText = '완료!';
+            button.classList.add('copied');
+            setTimeout(() => {
+              button.innerText = '복사';
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+        el.style.position = 'relative';
+        el.appendChild(button);
+      }
+    });
+  </script>
 </body>
 
 </html>
