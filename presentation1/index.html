@@ -151,136 +151,20 @@
                 </table>
             </section>
 
-            <!-- Slide 5: Miniconda Download -->
+            <!-- Slide 5: Create Project Folder -->
             <section>
-                <h1>Step 1: Miniconda 설치</h1>
-                <h2>1-1. Miniconda란?</h2>
-                <blockquote>
-                    <strong>Miniconda</strong><br>
-                    - Python 가상환경을 만들고 관리하는 도구<br>
-                    - 여러 프로젝트를 각각 독립된 환경에서 작업
-                </blockquote>
-                <h2>1-2. 다운로드</h2>
-                <ol>
-                    <li>다운로드 페이지</li>
-                    <a
-                        href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe">https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe</a>
-                    </li>
-                </ol>
-                <p><em><!-- [스크린샷: Miniconda 다운로드 페이지] --></em></p>
-            </section>
-
-            <!-- Slide 5: Miniconda Install -->
-            <section>
-                <h1>Step 1: Miniconda 설치</h1>
-                <h2>1-3. 설치 진행</h2>
-                <ol>
-                    <li>다운로드한 파일 실행</li>
-                    <li><strong>Next</strong> 클릭</li>
-                    <li><strong>I Agree</strong> 클릭</li>
-                    <li><strong>Just Me</strong> 선택 → <strong>Next</strong></li>
-                    <li>설치 경로 그대로 → <strong>Next</strong></li>
-                    <li>⚠️ <strong>중요!</strong> 아래 옵션 체크:
-                        <br><span class="highlight-box">✅ Add Miniconda3 to my PATH environment variable</span>
-                    </li>
-                    <li><strong>Install</strong> 클릭</li>
-                </ol>
-            </section>
-
-            <!-- Slide 6: Miniconda Verify -->
-            <section>
-                <h1>Step 1: Miniconda 설치</h1>
-                <h2>1-4. 설치 확인</h2>
-                <ol>
-                    <li><strong>Windows 키</strong> 누르고 <code>cmd</code> 입력 → Enter</li>
-                    <li>아래 명령어 입력:</li>
-                </ol>
-                <pre><code class="language-bash">conda --version</code></pre>
-                <p>아래와 같이 출력되면 정상 설치 완료</p>
-                <pre><code>conda 24.x.x</code></pre>
-                <blockquote><code>conda은(는) 인식할 수 없는 명령입니다</code> 오류 발생 시 컴퓨터 재시작 후 재시도</blockquote>
-            </section>
-
-            <!-- Slide 7: VSCode Download -->
-            <section>
-                <h1>Step 2: VSCode 설치</h1>
-                <h2>2-1. VSCode란?</h2>
-                <blockquote>
-                    <strong>Visual Studio Code (VSCode)</strong><br>
-                    - 마이크로소프트에서 만든 코드 편집기<br>
-                    - 문서 작성에 MS Word 사용하듯, 코드 작성에는 VSCode 사용<br>
-                    - 다양한 확장 기능으로 개발 환경 구성
-                </blockquote>
-                <h2>2-2. 다운로드 & 설치</h2>
-                <ol>
-                    <li>브라우저에서 검색: <code>vscode download</code></li>
-                    <li>또는 직접 접속: <a href="https://code.visualstudio.com">https://code.visualstudio.com</a></li>
-                    <li><strong>Download for Windows</strong> 클릭</li>
-                    <li>설치 파일 실행 → 전부 <strong>다음</strong> 클릭</li>
-
-                </ol>
-            </section>
-
-            <!-- Slide 8: VSCode Extensions -->
-            <section>
-                <h1>Step 2: VSCode 설치</h1>
-                <h2>2-3. 필수 확장 프로그램 설치</h2>
-                <p>VSCode 실행 후:</p>
-                <ol>
-                    <li>왼쪽 사이드바 <strong>확장</strong> 아이콘 클릭 (또는 <code>Ctrl + Shift + X</code>)</li>
-                    <li>검색창에 입력 후 <strong>Install</strong> 클릭:</li>
-                </ol>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>확장 프로그램</th>
-                            <th>용도</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>Python</code></td>
-                            <td>Python 개발 지원</td>
-                        </tr>
-                        <tr>
-                            <td><code>GitHub Copilot</code></td>
-                            <td>AI 코딩 도우미</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <!-- Slide 9: GitHub Login -->
-            <section>
-                <h1>Step 2: VSCode 설치</h1>
-                <h2>2-4. GitHub 로그인 (Copilot 활성화)</h2>
-                <ol>
-                    <li>VSCode 왼쪽 하단 <strong>사람 아이콘</strong> 클릭</li>
-                    <li><strong>Sign in with GitHub</strong> 클릭</li>
-                    <li>브라우저에서 GitHub 로그인</li>
-                    <li><strong>Authorize</strong> 클릭</li>
-                </ol>
-                <blockquote>
-                    GitHub Copilot 유료 서비스<br>
-                    - 월 $10 (학생 및 오픈소스 기여자 무료)<br>
-                    - 무료 체험 가능
-                </blockquote>
-            </section>
-
-            <!-- Slide 10: Create Project Folder -->
-            <section>
-                <h1>Step 3: 가상환경 만들기</h1>
-                <h2>3-1. 프로젝트 폴더 만들기</h2>
+                <h1>Step 1: 가상환경 만들기</h1>
+                <h2>1-1. 프로젝트 폴더 만들기</h2>
                 <ol>
                     <li>바탕화면에 <code>my_project</code> 폴더 생성</li>
                     <li>VSCode에서 <strong>File → Open Folder</strong> → 해당 폴더 선택</li>
                 </ol>
             </section>
 
-            <!-- Slide 11: Create Virtual Environment -->
+            <!-- Slide 6: Create Virtual Environment -->
             <section>
-                <h1>Step 3: 가상환경 만들기</h1>
-                <h2>3-2. 터미널 열기 & 가상환경 생성</h2>
+                <h1>Step 1: 가상환경 만들기</h1>
+                <h2>1-2. 터미널 열기 & 가상환경 생성</h2>
                 <ol>
                     <li>VSCode 상단 메뉴: <strong>Terminal → New Terminal</strong></li>
                     <li>아래 명령어 입력:</li>
@@ -292,19 +176,19 @@
                 <blockquote><code>myenv</code>: 가상환경 이름 (원하는 이름으로 변경 가능)</blockquote>
             </section>
 
-            <!-- Slide 12: Activate Environment -->
+            <!-- Slide 7: Activate Environment -->
             <section>
-                <h1>Step 3: 가상환경 만들기</h1>
-                <h2>3-3. 가상환경 활성화</h2>
+                <h1>Step 1: 가상환경 만들기</h1>
+                <h2>1-3. 가상환경 활성화</h2>
                 <pre><code class="language-bash">conda activate myenv</code></pre>
                 <p>터미널 앞에 <code>(myenv)</code> 표시 확인</p>
                 <pre><code>(myenv) C:\Users\사용자명\Desktop\my_project></code></pre>
             </section>
 
-            <!-- Slide 13: Select Interpreter -->
+            <!-- Slide 8: Select Interpreter -->
             <section>
-                <h1>Step 3: 가상환경 만들기</h1>
-                <h2>3-4. VSCode에서 인터프리터 선택</h2>
+                <h1>Step 1: 가상환경 만들기</h1>
+                <h2>1-4. VSCode에서 인터프리터 선택</h2>
                 <ol>
                     <li><code>Ctrl + Shift + P</code> 누르기</li>
                     <li><code>Python: Select Interpreter</code> 입력 → Enter</li>
@@ -313,20 +197,20 @@
                 <blockquote>VSCode에서 해당 가상환경의 Python 인터프리터 사용 설정 완료</blockquote>
             </section>
 
-            <!-- Slide 14: Create File -->
+            <!-- Slide 9: Create File -->
             <section>
-                <h1>Step 4: 바이브코딩 실습</h1>
-                <h2>4-1. 파일 생성</h2>
+                <h1>Step 2: 바이브코딩 실습</h1>
+                <h2>2-1. 파일 생성</h2>
                 <ol>
                     <li>VSCode 왼쪽 탐색기에서 <strong>새 파일</strong> 아이콘 클릭</li>
                     <li>파일 이름: <code>main.py</code></li>
                 </ol>
             </section>
 
-            <!-- Slide 15: Copilot Autocomplete -->
+            <!-- Slide 10: Copilot Autocomplete -->
             <section>
-                <h1>Step 4: 바이브코딩 실습</h1>
-                <h2>4-2. Copilot 자동완성 사용</h2>
+                <h1>Step 2: 바이브코딩 실습</h1>
+                <h2>2-2. Copilot 자동완성 사용</h2>
                 <p><code>main.py</code> 파일에 주석 작성:</p>
                 <pre><code class="language-python"># 1부터 10까지 숫자를 출력하는 코드</code></pre>
                 <p>Enter 입력 후 대기하면 Copilot이 코드 제안</p>
@@ -366,10 +250,11 @@ for i in range(1, 11):
 10</code></pre>
             </section>
 
-            <!-- Slide 18: Advanced Demo -->
+            <!-- Slide 10: Step 3: 실전 프로젝트 - AI 회의 녹음기 -->
             <section>
-                <h1>Step 5: 실전 프로젝트 - AI 회의 녹음기</h1>
+                <h1>Step 3: 실전 프로젝트 - AI 회의 녹음기</h1>
                 <h2>Copilot 원샷 프롬프트 (자동 실행)</h2>
+                <p>모든 기능이 정상 동작하지 않아도 됩니다.</p>
                 <p><strong>Copilot Chat에 아래 프롬프트 전체 복사 후 붙여넣기:</strong></p>
                 <pre><code>Python으로 음성 인식 기능이 있는 회의 녹음기 프로그램을 만들고 Windows exe 파일로 패키징해줘. 직접 실행까지 해줘.
 
@@ -401,7 +286,7 @@ for i in range(1, 11):
 각 단계를 직접 실행하고 결과를 알려줘.</code></pre>
             </section>
 
-            <!-- Slide 19: Troubleshooting -->
+            <!-- Slide 11: Troubleshooting -->
             <section>
                 <h1>트러블슈팅</h1>
                 <h2>자주 발생하는 문제</h2>
@@ -442,7 +327,26 @@ for i in range(1, 11):
                 </table>
             </section>
 
-            <!-- Slide 20: Cheat Sheet -->
+            <!-- Slide 12: AI Error Fix Tips -->
+            <section>
+                <h1>AI를 활용한 오류 수정 팁</h1>
+                <h2>Traceback(오류 메시지) 활용하기</h2>
+                <ol>
+                    <li><strong>오류 메시지 복사:</strong> 터미널의 <code>Traceback</code>(오류 내역) 전체를 드래그하여 복사</li>
+                    <li><strong>Copilot Chat에 질문:</strong> <code>Ctrl + Shift + I</code>로 채팅창을 열고 붙여넣기</li>
+                    <li><strong>수정 요청:</strong> <code>"이 오류를 해결하는 코드로 수정해줘"</code>라고 입력</li>
+                </ol>
+                <div class="example-box">
+                    <p><strong>Traceback 예시:</strong></p>
+                    <pre><code class="language-text">Traceback (most recent call last):
+  File "main.py", line 5, in &lt;module&gt;
+    print(10 / 0)
+ZeroDivisionError: division by zero</code></pre>
+                </div>
+
+            </section>
+
+            <!-- Slide 13: Cheat Sheet -->
             <section>
                 <h1>유용한 명령어 모음</h1>
                 <h2>Conda 명령어 치트시트</h2>
